@@ -9,8 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.shwetak3e.zentello.R;
-
-
+import com.shwetak3e.zentello.adapter.PickUpAdapter;
 
 
 public class PickUpFragment extends Fragment {
@@ -23,6 +22,7 @@ public class PickUpFragment extends Fragment {
 
     RecyclerView pickUpDetails;
     RecyclerView.LayoutManager layoutManager;
+    PickUpAdapter pickUpAdapter;
 
     public PickUpFragment() {
         // Required empty public constructor
