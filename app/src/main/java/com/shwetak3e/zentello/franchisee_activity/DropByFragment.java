@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 
 import com.shwetak3e.zentello.R;
 
+/**
+ * Created by Pervacio on 5/11/2017.
+ */
 
-
-
-public class PickUpFragment extends Fragment {
+public class DropByFragment  extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_MSG = "ARG_MSG";
@@ -21,10 +22,10 @@ public class PickUpFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private int page;
 
-    RecyclerView pickUpDetails;
+    RecyclerView dropbyList;
     RecyclerView.LayoutManager layoutManager;
 
-    public PickUpFragment() {
+    public DropByFragment() {
         // Required empty public constructor
     }
 
@@ -50,13 +51,11 @@ public class PickUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_pickup, container, false);
+        View view = inflater.inflate(R.layout.fragment_dropby, container, false);
 
-        pickUpDetails=(RecyclerView)view.findViewById(R.id.pick_up_list);
-        layoutManager= new GridLayoutManager(getActivity(),1);
-        pickUpDetails.setLayoutManager(layoutManager);
+        dropbyList = (RecyclerView) view.findViewById(R.id.drop_by_list);
+        layoutManager = new GridLayoutManager(getActivity(), 1);
+        dropbyList.setLayoutManager(layoutManager);
         return view;
     }
-
 }
-

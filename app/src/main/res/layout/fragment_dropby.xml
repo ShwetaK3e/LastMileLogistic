@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TODAY'S DROP BY"
+        android:textSize="15sp"
+        android:typeface="serif"
+        android:textColor="@color/orange"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:id="@+id/guideline"
+        android:layout_marginTop="5dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/light_grey"
+        android:layout_marginTop="5dp"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/drop_by_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:scrollbars="vertical">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</LinearLayout>
