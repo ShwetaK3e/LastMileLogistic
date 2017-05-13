@@ -11,4 +11,5 @@
     <color name="sky_blue">#D4F0F4</color>
     <color name="light_violet">#779FFD</color>
     <color name="text_violet">#a431b0</color>
+    <color name="bg_rounded_square_holder">#CCd6d6d6</color>
 </resources>

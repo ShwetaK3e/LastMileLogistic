@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
+import com.shwetak3e.zentello.franchisee_activity.DropByFragment;
 import com.shwetak3e.zentello.franchisee_activity.PickUpFragment;
 
 /**
@@ -28,7 +29,7 @@ public class TodayScheduleAdapter extends FragmentPagerAdapter {
             case 0:
                 return PickUpFragment.newInstance(position+1);
             case 1:
-                return PickUpFragment.newInstance(position+1);
+                return DropByFragment.newInstance(position+1);
             default:
                 return PickUpFragment.newInstance(position+1);
         }

@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Zentello</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyCyCKDT0LVg3kkQ6EXMZrD5tldKyvRhrdw
+    </string>
 
 
     <!-- Login and Register -->
@@ -20,6 +23,15 @@
     <string name="welcome">Welcome</string>
     <string name="join_us">Join Us</string>
     <string name="sign_in">Sign In</string>
+
+
+    <!--Parcel Details -->
+    <string name="hint_booking_date">Booking Date* (DD-MM-YYYY)</string>
+    <string name="hint_weight">Weight* (in kgs)</string>
+    <string name="hint_length">L* (cm)</string>
+    <string name="hint_width">W* (cm)</string>
+    <string name="hint_height">H* (cm)</string>
+    <string name="hint_mode">Mode* (Surface /Air)</string>
 
 
 </resources>

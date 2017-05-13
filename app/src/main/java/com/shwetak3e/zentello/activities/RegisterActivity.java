@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 
 import com.shwetak3e.zentello.R;
+import com.shwetak3e.zentello.user_activity.BookParcelDeliveryActivity;
 import com.shwetak3e.zentello.utilities.Constants;
 import com.shwetak3e.zentello.utilities.DetectNetworkConnectivity;
 import com.shwetak3e.zentello.utilities.UserFormValidity;
@@ -158,6 +159,7 @@ public class RegisterActivity extends AppCompatActivity {
                 newUserDetails.put(PHONE_PARAM_KEY,phoneEdit.getText().toString().trim());
                 newUserDetails.put(PASSWORD_PARAM_KEY,passwordEdit.getText().toString().trim());
                // new RegistrationService(this).execute(newUserDetails);
+                startActivity(new Intent(this, BookParcelDeliveryActivity.class));
             } catch (Exception e) {
                 e.printStackTrace();
             }

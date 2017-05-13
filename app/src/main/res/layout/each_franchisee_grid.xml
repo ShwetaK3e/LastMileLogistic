@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NAME OF THE FRANCHISEE"
+        android:id="@+id/franchisee_name"
+        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:gravity="center">
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="PICK MY PARCEL"
+        android:layout_weight="0.4"
+        android:layout_margin="2dp"
+        android:id="@+id/pick_my_parcel"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="DROP MY PARCEL"
+            android:layout_weight="0.4"
+            android:layout_margin="2dp"
+            android:id="@+id/drop_my_parcel"/>
+
+        </LinearLayout>
+
+
+</LinearLayout>
