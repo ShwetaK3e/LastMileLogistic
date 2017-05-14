@@ -188,7 +188,7 @@ public class ParcelDestFragment extends Fragment implements OnMapReadyCallback {
 
     void showMapFrag() {
         gMapLayout.setVisibility(View.VISIBLE);
-        addressFormLayout.setVisibility(View.INVISIBLE);
+        addressFormLayout.setVisibility(View.GONE);
     }
 
     void showaddFormFrag() {

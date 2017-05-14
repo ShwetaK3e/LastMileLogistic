@@ -1,5 +1,6 @@
 package com.shwetak3e.zentello.franchisee_activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,6 +12,9 @@ import android.view.ViewGroup;
 
 import com.shwetak3e.zentello.R;
 import com.shwetak3e.zentello.adapter.PickUpAdapter;
+import com.shwetak3e.zentello.models.Parcel;
+
+import static com.shwetak3e.zentello.activities.SplashActivity.parcels;
 
 
 public class PickUpFragment extends Fragment {
@@ -64,6 +68,11 @@ public class PickUpFragment extends Fragment {
         pickUpAdapter=new PickUpAdapter(getActivity(), new PickUpAdapter.OnMyItemClickListener() {
             @Override
             public void onClick(String parcel_id) {
+                Parcel parcel=parcels.get(parcel_id);
+                parcel.setReahed_warehouse(true);
+                parcels.remove(parcel_id);
+                parcels.put(parcel_id,parcel);
+                startActivity(new Intent(getActivity(),SignatureActivity.class));
 
             }
         });

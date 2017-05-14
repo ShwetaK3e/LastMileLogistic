@@ -3,7 +3,8 @@
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+    android:padding="5dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -58,40 +59,46 @@
 
 
     <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/select_origin">
-
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/pin_layout"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:paddingLeft="20dp"
-        android:layout_weight="0.00"
-        android:layout_margin="5dp">
+        android:layout_height="match_parent"
+        android:id="@+id/select_origin"
+        android:padding="5dp">
 
-        <EditText
-            android:id="@+id/pincode_edit"
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/pincode_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="PinCode"
-            android:text="500081"/>
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/text_input_layout_bg"
+            android:padding="4dp"
+            android:textColorHint="@color/colorAccent">
+
+            <EditText
+                android:id="@+id/pincode_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/reg_login_text_edit_bg"
+                android:hint="Pincode*"
+                android:padding="4dp"
+                android:text="500081"
+                android:textColorHint="@color/colorPrimary" />
+        </android.support.design.widget.TextInputLayout>
+
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/search_franchisee"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#8888"
-        android:layout_margin="5dp"/>
+        android:id="@+id/search_franchisee"
+        android:background="@drawable/buttons_bg"/>
+
 
     <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
@@ -99,13 +106,20 @@
         android:weightSum="1"
         android:id="@+id/available_franchisee_layout">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/light_grey"
+            android:layout_margin="5dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NAME OF THE FRANCHISEE"
             android:id="@+id/franchisee_name"
             android:gravity="center"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -130,14 +144,14 @@
 
         </LinearLayout>
 
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/light_grey"
+            android:layout_margin="5dp"/>
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#8888"
-        android:layout_margin="5dp"/>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -173,12 +187,7 @@
                 android:layout_marginRight="20dp"
                 android:weightSum="1"
                 android:id="@+id/loc_form_layout">
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/light_grey"
-                    android:layout_marginTop="5dp"
-                    />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"

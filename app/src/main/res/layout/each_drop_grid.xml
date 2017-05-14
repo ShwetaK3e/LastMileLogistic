@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:text="Siddhu Ranawat"
-                    android:id="@+id/pick_up_person"/>
+                    android:id="@+id/parcel_owner"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -58,9 +58,14 @@
         android:gravity="center">
 
         <CheckBox
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:id="@+id/check_pick"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/white"
+            android:button="@drawable/checkbox"
+            android:layout_margin="5dp"
+            android:clickable="false"
+            />
 
     </LinearLayout>
 

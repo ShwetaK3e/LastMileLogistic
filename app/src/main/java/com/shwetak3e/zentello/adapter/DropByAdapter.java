@@ -38,11 +38,11 @@ public class DropByAdapter extends RecyclerView.Adapter<DropByAdapter.Holder> {
         this.context=context;
         this.onMyItemClickListener=onMyItemClickListener;
         for(Map.Entry<String,Parcel> entry: parcels.entrySet()){
-            Log.i(TAG,"Parcel Added"+dropbyparcels.size());
+            Log.i(TAG,"Parcel "+ entry.getKey()+" ----"+entry.getValue().getId());
             Parcel parcel=entry.getValue();
-            Log.i(TAG,"Parcel Added1 "+dropbyparcels.size());
+
             if(!parcel.isPick_up()){
-                Log.i(TAG,"Parcel Added2 "+dropbyparcels.size());
+                Log.i(TAG,"Parcel Added id "+parcel.getId());
                 dropbyparcels.add(parcel);
                 Log.i(TAG,"Parcel Added3 "+dropbyparcels.size());
             }
@@ -69,6 +69,11 @@ public class DropByAdapter extends RecyclerView.Adapter<DropByAdapter.Holder> {
         Log.i(TAG,"adapter onBindViewHolder");
         holder.order_id.setText(dropbyparcels.get(position).getId());
         holder.parcel_owner_name.setText(dropbyparcels.get(position).getParcel_owner());
+        if(dropbyparcels.get(position).isReahed_warehouse()){
+            holder.check_pick.setChecked(true);
+        }else{
+            holder.check_pick.setChecked(false);
+        }
     }
 
     @Override
@@ -85,6 +90,7 @@ public class DropByAdapter extends RecyclerView.Adapter<DropByAdapter.Holder> {
             order_id=(TextView)itemView.findViewById(R.id.order_id);
             parcel_owner_name=(TextView)itemView.findViewById(R.id.parcel_owner);
             check_pick=(CheckBox) itemView.findViewById(R.id.check_pick);
+            check_pick.setEnabled(false);
         }
     }
 

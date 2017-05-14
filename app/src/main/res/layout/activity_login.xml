@@ -105,7 +105,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@mipmap/zentello_logo" />
+                android:src="@drawable/zentello_logo" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -247,7 +247,7 @@
             android:background="@android:color/transparent"
             android:text="@string/btn_link_to_register"
             android:textStyle="bold"
-            android:textColor="@color/orange"
+            android:textColor="@color/maroon"
             android:textSize="15sp"
             android:onClick="gotoRegister"
             android:typeface="serif"

@@ -9,7 +9,7 @@
         android:text="TODAY'S DROP BY"
         android:textSize="15sp"
         android:typeface="serif"
-        android:textColor="@color/orange"
+        android:textColor="@color/maroon"
         android:layout_gravity="center"
         android:textStyle="bold"
         android:id="@+id/guideline"
@@ -24,7 +24,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/drop_by_list"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"

@@ -7,44 +7,53 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Parcel Details"
-        android:textSize="15sp"
-        android:typeface="serif"
-        android:textColor="@color/orange"
         android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="PARCEL DETAILS"
+        android:textColor="@color/maroon"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:id="@+id/guideline"
-        android:layout_marginTop="5dp"/>
+        android:typeface="serif" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/light_grey"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_rounded_square_holder"
+        android:layout_margin="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/booking_date_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/text_input_layout_bg"
-        android:padding="4dp"
-
-        android:textColorHint="@color/colorAccent">
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:layout_weight="1">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/booking_date_edit"
             android:text="02-06-2017"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/reg_login_text_edit_bg"
             android:hint="@string/hint_booking_date"
-            android:padding="4dp"
             android:textColorHint="@color/colorPrimary" />
     </android.support.design.widget.TextInputLayout>
 
@@ -53,24 +62,20 @@
         android:id="@+id/weight_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/text_input_layout_bg"
-        android:padding="4dp"
-        android:textColorHint="@color/colorAccent">
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:layout_weight="1">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/weight_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/hint_weight"
-            android:padding="4dp"
             android:textColorHint="@color/colorPrimary"
-            android:background="@drawable/reg_login_text_edit_bg"
             android:text="34"
             />
     </android.support.design.widget.TextInputLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,22 +87,17 @@
             android:layout_width="0dp"
             android:layout_weight="0.33"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/text_input_layout_bg"
-            android:padding="4dp"
-            android:textColorHint="@color/colorAccent">
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/length_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_length"
-                android:padding="4dp"
+
                 android:text="40"
                 android:textColorHint="@color/colorPrimary"
-                android:background="@drawable/reg_login_text_edit_bg"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -106,20 +106,14 @@
             android:layout_width="0dp"
             android:layout_weight="0.33"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/text_input_layout_bg"
-            android:padding="4dp"
-            android:textColorHint="@color/colorAccent">
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/width_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/reg_login_text_edit_bg"
                 android:hint="@string/hint_width"
-                android:padding="4dp"
                 android:text="30"
                 android:textColorHint="@color/colorPrimary" />
         </android.support.design.widget.TextInputLayout>
@@ -129,22 +123,16 @@
             android:layout_width="0dp"
             android:layout_weight="0.33"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:background="@drawable/text_input_layout_bg"
-            android:padding="4dp"
-            android:textColorHint="@color/colorAccent">
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/height_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_height"
-                android:padding="4dp"
                 android:text="20"
                 android:textColorHint="@color/colorPrimary"
-                android:background="@drawable/reg_login_text_edit_bg"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -155,32 +143,31 @@
         android:id="@+id/mode_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/text_input_layout_bg"
-        android:padding="4dp"
-        android:textColorHint="@color/colorAccent">
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:layout_weight="1">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/mode_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_mode"
-            android:padding="4dp"
             android:textColorHint="@color/colorPrimary"
             android:text="Air"
-            android:background="@drawable/reg_login_text_edit_bg"
             />
     </android.support.design.widget.TextInputLayout>
 
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="SAVE"
-    android:layout_gravity="center_horizontal"
-    android:id="@+id/save_details"/>
-
-    
     </LinearLayout>
+
+</ScrollView>
+
+    <Button
+        android:id="@+id/save_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="SAVE"
+        android:background="@drawable/buttons_bg"/>
+
+
+</LinearLayout>

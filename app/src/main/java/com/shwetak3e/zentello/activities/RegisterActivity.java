@@ -85,13 +85,15 @@ public class RegisterActivity extends AppCompatActivity {
         i_am_customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               fullNameEdit.setHint(getResources().getString(R.string.hint_name));
+                i_am_customer.setSelected(true);
+                i_am_franchisee.setSelected(false);
             }
         });
-        i_am_customer.setOnClickListener(new View.OnClickListener() {
+        i_am_franchisee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fullNameEdit.setHint(getResources().getString(R.string.hint_franchisee_name));
+                i_am_customer.setSelected(false);
+                i_am_franchisee.setSelected(true);
             }
         });
 

@@ -65,13 +65,15 @@ public class BookParcelDeliveryActivity extends AppCompatActivity {
             public void onClick(View v) {
                  parcel.setId(String.valueOf(parcels.size()));
                  parcel.setParcel_owner("User"+parcel.getId());
-                if(parcel.isPick_up()) {
+                 Log.i(TAG,parcel.getParcel_owner());
+                 if(parcel.isPick_up()) {
                     parcel.setPick_up_person(findpickerName(parcel.getOrigin().getPincode()));
-                }else{
+                 }else{
                     parcel.setPick_up_person("");
-                }
-                Log.i(TAG,parcel.getId()+" "+parcel.getBookingDate()+" "+parcel.getMode()+" "+parcel.getWeight()+" "+parcel.isPick_up());
+                 }
+                 Log.i(TAG,parcel.getId()+" "+parcel.getBookingDate()+" "+parcel.getMode()+" "+parcel.getWeight()+" "+parcel.isPick_up());
                  parcels.put(parcel.getId(),parcel);
+                 parcel=new Parcel();
                  startActivity(new Intent(BookParcelDeliveryActivity.this, SeeTodayScheduleActivity.class));
 
             }

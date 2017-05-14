@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  RISE.  SHINE.  REACH.  OFFER.  DESTINY  "
+                android:text="  TAGLINE.  TAGLINE.  TAGLINE.  TAGLINE.  "
                 android:paddingRight="5dp"
                 android:paddingLeft="5dp"
                 android:textColor="@color/white"/>
@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  RISE.  SHINE.  REACH  "
+                android:text="  TAGLINE.  TAGLINE.  "
                 android:paddingRight="5dp"
                 android:paddingLeft="5dp"
                 android:textColor="@color/white"/>
@@ -102,7 +102,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@mipmap/zentello_logo" />
+                android:src="@drawable/zentello_logo" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -120,53 +120,57 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/reg_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.6"
-        android:orientation="vertical"
-        android:padding="5dp"
         android:background="@color/white"
         android:gravity="center_vertical"
-        android:id="@+id/reg_layout">
-
+        android:orientation="vertical"
+        android:padding="5dp">
 
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
                 android:background="@color/white"
-                android:layout_marginTop="5dp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
                     android:orientation="horizontal"
-                    android:weightSum="1"
-                    android:layout_marginBottom="2dp">
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:weightSum="1">
+
                     <Button
-                        android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_marginRight="2.5dp"
-                        android:layout_marginLeft="2.5dp"
-                        android:layout_height="wrap_content"
-                        android:text="Franchisee"
                         android:id="@+id/i_am_franchisee"
-                        />
-                    <Button
                         android:layout_width="0dp"
-                        android:layout_weight="0.5"
-                        android:layout_marginLeft="2.5dp"
-                        android:layout_marginRight="2.5dp"
                         android:layout_height="wrap_content"
-                        android:text="Customer"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="2.5dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/buttons_bg"
+                        android:text="Franchisee" />
+
+                    <Button
                         android:id="@+id/i_am_customer"
-                        />
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2.5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/buttons_bg"
+                        android:text="Customer" />
 
                 </LinearLayout>
 
@@ -184,16 +188,14 @@
 
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/rEditFName"
-                        android:text="Shweta Kumar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/reg_login_text_edit_bg"
                         android:hint="@string/hint_name"
                         android:padding="4dp"
-                        android:textColorHint="@color/colorPrimary"
-                        android:background="@drawable/reg_login_text_edit_bg"
-                        />
+                        android:text="Shweta"
+                        android:textColorHint="@color/colorPrimary" />
                 </android.support.design.widget.TextInputLayout>
-
 
 
                 <android.support.design.widget.TextInputLayout
@@ -203,19 +205,19 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:padding="4dp"
                     android:background="@drawable/text_input_layout_bg"
+                    android:padding="4dp"
                     android:textColorHint="@color/colorPrimary">
 
                     <android.support.design.widget.TextInputEditText
+                        android:id="@+id/rEditEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/rEditEmail"
-                        android:text="kumar.miki@gmail.com"
+                        android:background="@drawable/reg_login_text_edit_bg"
                         android:hint="@string/hint_email"
                         android:inputType="textEmailAddress"
                         android:padding="4dp"
-                        android:background="@drawable/reg_login_text_edit_bg"/>
+                        android:text="kumar.miki@gmail.com" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -227,19 +229,19 @@
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:padding="4dp"
                     android:background="@drawable/text_input_layout_bg"
+                    android:padding="4dp"
                     android:textColorHint="@color/colorPrimary">
 
                     <android.support.design.widget.TextInputEditText
+                        android:id="@+id/rEditPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/rEditPhone"
+                        android:background="@drawable/reg_login_text_edit_bg"
                         android:hint="@string/hint_phone"
                         android:inputType="phone"
                         android:padding="4dp"
-                        android:text="7207700480"
-                        android:background="@drawable/reg_login_text_edit_bg"/>
+                        android:text="7207700480" />
 
                 </android.support.design.widget.TextInputLayout>
 
@@ -252,23 +254,23 @@
                     android:layout_marginRight="8dp"
                     android:background="@drawable/text_input_layout_bg"
                     android:padding="4dp"
-                    android:textColorHint="@color/colorPrimary"
-                    >
+                    android:textColorHint="@color/colorPrimary">
 
                     <android.support.design.widget.TextInputEditText
+                        android:id="@+id/rEditPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/rEditPassword"
+                        android:background="@drawable/reg_login_text_edit_bg"
                         android:hint="@string/hint_password"
-                        android:padding="4dp"
-                        android:text="String3e@"
                         android:inputType="textPassword"
-                        android:background="@drawable/reg_login_text_edit_bg" />
+                        android:padding="4dp"
+                        android:text="String3e@" />
                 </android.support.design.widget.TextInputLayout>
+
                 <CheckBox
+                    android:id="@+id/show_password_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/show_password_btn"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="-6dp"
@@ -280,22 +282,24 @@
 
             </LinearLayout>
         </ScrollView>
+
         <Button
+            android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btn_register"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
-            android:paddingTop="2dp"
+            android:background="@drawable/register_button"
             android:paddingBottom="2dp"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:background="@drawable/register_button"
+            android:paddingTop="2dp"
+            android:text="@string/btn_register"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:id="@+id/btnRegister"
-            android:layout_gravity="center_horizontal" />
+            android:textStyle="bold" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -320,7 +324,7 @@
             android:background="@android:color/transparent"
             android:text="@string/btn_link_to_login"
             android:textStyle="bold"
-            android:textColor="@color/orange"
+            android:textColor="@color/maroon"
             android:textSize="15sp"
             android:onClick="gotoLogin"
             android:typeface="serif"

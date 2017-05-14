@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.shwetak3e.zentello.R;
 import com.shwetak3e.zentello.adapter.BookDeliveryAdapter;
+import com.shwetak3e.zentello.franchisee_activity.SignatureActivity;
 import com.shwetak3e.zentello.models.Frnachisee;
 import com.shwetak3e.zentello.models.Parcel;
 import com.shwetak3e.zentello.user_activity.BookParcelDeliveryActivity;
@@ -45,7 +46,7 @@ public class SplashActivity extends AppCompatActivity {
                 //This method will be executed once the timer is over
                 //Start your app main activity
                 Intent i;
-                i= new Intent(SplashActivity.this, BookParcelDeliveryActivity.class);
+                i= new Intent(SplashActivity.this, RegisterActivity.class);
                 SplashActivity.this.startActivity(i);
 
                 // Close this activity

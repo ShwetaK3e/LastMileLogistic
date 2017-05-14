@@ -18,6 +18,15 @@ public class Parcel {
     String pick_up_person;
     boolean pick_up;
     String id;
+    boolean reahed_warehouse;
+
+    public boolean isReahed_warehouse() {
+        return reahed_warehouse;
+    }
+
+    public void setReahed_warehouse(boolean reahed_warehouse) {
+        this.reahed_warehouse = reahed_warehouse;
+    }
 
     public String getId() {
         return id;

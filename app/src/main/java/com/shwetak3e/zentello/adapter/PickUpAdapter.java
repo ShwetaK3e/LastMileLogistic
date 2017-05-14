@@ -38,15 +38,15 @@ public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
         Log.i(TAG,"Adapter Constructor"+parcels.size());
         this.context=context;
         this.onMyItemClickListener=onMyItemClickListener;
-        for(Map.Entry entry: parcels.entrySet()){
-            Log.i(TAG,"Parcel Added "+pickupparcels.size());
-            Parcel parcel=(Parcel)entry.getValue();
-
+        for(Map.Entry<String,Parcel> entry: parcels.entrySet()){
+            Parcel parcel=entry.getValue();
+            Log.i(TAG,"Parcel "+ entry.getKey()+" ----"+entry.getValue().getId());
             if(parcel.isPick_up()){
-                Log.i(TAG,"Parcel Added1 "+pickupparcels.size());
+                Log.i(TAG,"Parcel Added id "+parcel.getId());
                 pickupparcels.add(parcel);
                 Log.i(TAG,"Parcel Added "+pickupparcels.size());
             }
+
         }
 
     }
@@ -72,6 +72,11 @@ public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
             holder.order_id.setText(pickupparcels.get(position).getId());
             holder.parcel_owner_name.setText(pickupparcels.get(position).getParcel_owner());
             holder.pickup_person_name.setText(pickupparcels.get(position).getPick_up_person());
+            if(pickupparcels.get(position).isReahed_warehouse()){
+                holder.check_pick.setChecked(true);
+            }else{
+                holder.check_pick.setChecked(false);
+            }
 
     }
 
@@ -90,6 +95,7 @@ public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
             parcel_owner_name=(TextView)itemView.findViewById(R.id.parcel_owner);
             pickup_person_name=(TextView)itemView.findViewById(R.id.pick_up_person);
             check_pick=(CheckBox) itemView.findViewById(R.id.check_pick);
+            check_pick.setEnabled(false);
         }
     }
 

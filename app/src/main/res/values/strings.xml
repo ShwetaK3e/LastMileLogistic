@@ -9,7 +9,7 @@
     <string name="hint_email">Email*</string>
     <string name="hint_phone">Mobile No.*</string>
     <string name="hint_password">Password*</string>
-    <string name="hint_name">First Name*</string>
+    <string name="hint_name">Name*</string>
     <string name="hint_franchisee_name">Franchisee Name*</string>
     <string name="btn_login">LOGIN</string>
     <string name="btn_register">REGISTER</string>

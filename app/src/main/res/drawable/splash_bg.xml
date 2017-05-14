@@ -7,7 +7,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/zentello_logo" />
+            android:src="@drawable/zentello_logo" />
     </item>
 
 
