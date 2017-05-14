@@ -15,13 +15,14 @@ import com.shwetak3e.zentello.models.Parcel;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.shwetak3e.zentello.activities.SplashActivity.parcels;
+
 /**
  * Created by Pervacio on 5/10/2017.
  */
 
 public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
 
-    private Map<String,Parcel> parcels=new HashMap<>();
 
     private Context context;
     private OnMyItemClickListener onMyItemClickListener;
@@ -29,10 +30,9 @@ public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
     private static String TAG=PickUpAdapter.class.getSimpleName();
 
 
-    public PickUpAdapter(Context context, Map<String ,Parcel> parcels, OnMyItemClickListener onMyItemClickListener) {
+    public PickUpAdapter(Context context, OnMyItemClickListener onMyItemClickListener) {
         Log.i(TAG,"Adapter Constructor");
         this.context=context;
-        this.parcels=parcels;
         this.onMyItemClickListener=onMyItemClickListener;
     }
 
@@ -54,6 +54,12 @@ public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         Log.i(TAG,"adapter onBindViewHolder");
+        Parcel parcel=parcels.get(String.valueOf(position));
+        if(parcel.isPick_up()) {
+            holder.order_id.setText(parcel.getId());
+            holder.parcel_owner_name.setText(parcel.getParcel_owner());
+            holder.pickup_person_name.setText(parcel.getPick_up_person());
+        }
     }
 
     @Override
@@ -75,7 +81,7 @@ public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
     }
 
     public interface OnMyItemClickListener{
-        public void onClick(String order_id);
+        public void onClick(String parcel_id);
     }
 
 }

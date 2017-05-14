@@ -163,6 +163,7 @@ public class ParcelDestFragment extends Fragment implements OnMapReadyCallback {
                     googleMap.clear();
                     googleMap.addMarker(new MarkerOptions().position(latLng).title("Destination Marker"));
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16.0f));
+                    saveDestination(latLng,placeName.getText().toString().trim(),street.getText().toString().trim(),locality.getText().toString().trim(),city.getText().toString().trim(),state.getText().toString().trim(),zip.getText().toString().trim(),country.getText().toString().trim());
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -170,6 +171,19 @@ public class ParcelDestFragment extends Fragment implements OnMapReadyCallback {
         }else{
             Toast.makeText(getActivity(), "Not A Correct Address. Check the entered Details", Toast.LENGTH_LONG).show();
         }
+    }
+
+    void saveDestination(LatLng latLng ,String placeName,String street_no,String locality,String city,String state,String pincode,String country){
+        Parcel.Location destination=new Parcel.Location();
+        destination.setLatLng(latLng);
+        destination.setPincode(pincode);
+        destination.setCity(city);
+        destination.setCountry(country);
+        destination.setLocality(locality);
+        destination.setState(state);
+        destination.setPlaceName(placeName);
+        destination.setStreet_no(street_no);
+        parcel.setDestination(destination);
     }
 
     void showMapFrag() {

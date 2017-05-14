@@ -17,6 +17,15 @@ public class Parcel {
     String parcel_owner;
     String pick_up_person;
     boolean pick_up;
+    String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public boolean isPick_up() {
         return pick_up;
@@ -110,10 +119,10 @@ public class Parcel {
 
 
 
-    public class Location{
+    public static class Location{
 
         LatLng latLng;
-        Long pincode;
+        String pincode;
         String placeName;
         String locality;
         String street_no;
@@ -129,11 +138,11 @@ public class Parcel {
             this.latLng = latLng;
         }
 
-        public Long getPincode() {
+        public String  getPincode() {
             return pincode;
         }
 
-        public void setPincode(Long pincode) {
+        public void setPincode(String  pincode) {
             this.pincode = pincode;
         }
 

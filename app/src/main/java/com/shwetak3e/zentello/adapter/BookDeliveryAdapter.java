@@ -22,9 +22,10 @@ public class BookDeliveryAdapter extends FragmentPagerAdapter {
     Context context;
     Parcel parcel;
 
-    public BookDeliveryAdapter(FragmentManager fm, Context context) {
+    public BookDeliveryAdapter(FragmentManager fm, Context context, Parcel parcel) {
         super(fm);
         this.context=context;
+        this.parcel=parcel;
     }
 
     @Override

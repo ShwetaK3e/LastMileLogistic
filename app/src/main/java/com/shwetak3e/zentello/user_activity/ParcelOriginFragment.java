@@ -137,6 +137,7 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 origin_details_layout.setVisibility(View.VISIBLE);
+                parcel.setPick_up(true);
                 showPickUpDetails();
             }
         });
@@ -145,6 +146,7 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
             @Override
             public void onClick(View v) {
                 origin_details_layout.setVisibility(View.VISIBLE);
+                parcel.setPick_up(false);
                 showDropByDetails();
             }
         });
@@ -219,6 +221,7 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
                     googleMap.clear();
                     googleMap.addMarker(new MarkerOptions().position(latLng).title("Destination Marker"));
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16.0f));
+                    saveOrigin(latLng,placeName.getText().toString().trim(),street.getText().toString().trim(),locality.getText().toString().trim(),city.getText().toString().trim(),state.getText().toString().trim(),zip.getText().toString().trim(),country.getText().toString().trim());
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -252,5 +255,18 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
 
     String findFranchisee(String pin){
         return pinFrnachiseeMap.get(pin);
+    }
+
+    void saveOrigin(LatLng latLng ,String placeName,String street_no,String locality,String city,String state,String pincode,String country){
+        Parcel.Location pick_up_origin=new Parcel.Location();
+        pick_up_origin.setLatLng(latLng);
+        pick_up_origin.setPincode(pincode);
+        pick_up_origin.setCity(city);
+        pick_up_origin.setCountry(country);
+        pick_up_origin.setLocality(locality);
+        pick_up_origin.setState(state);
+        pick_up_origin.setPlaceName(placeName);
+        pick_up_origin.setStreet_no(street_no);
+        parcel.setOrigin(pick_up_origin);
     }
 }

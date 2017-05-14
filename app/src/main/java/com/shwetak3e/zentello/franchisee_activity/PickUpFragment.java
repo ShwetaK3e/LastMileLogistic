@@ -55,6 +55,7 @@ public class PickUpFragment extends Fragment {
         pickUpDetails=(RecyclerView)view.findViewById(R.id.pick_up_list);
         layoutManager= new GridLayoutManager(getActivity(),1);
         pickUpDetails.setLayoutManager(layoutManager);
+        pickUpAdapter=new PickUpAdapter(getActivity(),)
         return view;
     }
 

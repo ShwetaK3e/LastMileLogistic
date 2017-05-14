@@ -2,13 +2,13 @@ package com.shwetak3e.zentello.activities;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.os.Parcel;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.shwetak3e.zentello.R;
 import com.shwetak3e.zentello.adapter.BookDeliveryAdapter;
 import com.shwetak3e.zentello.models.Frnachisee;
+import com.shwetak3e.zentello.models.Parcel;
 import com.shwetak3e.zentello.user_activity.BookParcelDeliveryActivity;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
     //Splash Screen Timer
     private static int SPLASH_TIME_OUT = 3000;
     public static List<Frnachisee> franchisees=new ArrayList<>();
-    public static List<Parcel> parcels=new ArrayList<>();
+    public static Map<String,Parcel> parcels=new HashMap<>();
     public static Map<String, String> pinFrnachiseeMap=new HashMap<>();
     public static Map<String, String> pinRouteMap=new HashMap<>();
     public static Map<String ,Frnachisee.People> deliveryBoyRouteMap=new HashMap<>();
