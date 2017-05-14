@@ -205,8 +205,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text"
-                            android:hint="Store Name"
-                            android:text="My Place"/>
+                            android:hint="Place Name"
+                            android:text="401, Elite Service Apartments"/>
                     </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>
@@ -384,7 +384,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text"
-                            android:hint="Country" />
+                            android:hint="Country"
+                            android:text="India"/>
                     </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>

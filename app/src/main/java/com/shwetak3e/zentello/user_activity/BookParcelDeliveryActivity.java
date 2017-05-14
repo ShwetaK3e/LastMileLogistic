@@ -1,12 +1,14 @@
 package com.shwetak3e.zentello.user_activity;
 
 import android.content.BroadcastReceiver;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,11 +18,15 @@ import android.widget.TextView;
 import com.shwetak3e.zentello.R;
 import com.shwetak3e.zentello.adapter.BookDeliveryAdapter;
 import com.shwetak3e.zentello.adapter.TodayScheduleAdapter;
+import com.shwetak3e.zentello.franchisee_activity.SeeTodayScheduleActivity;
+import com.shwetak3e.zentello.models.Frnachisee;
 import com.shwetak3e.zentello.models.Parcel;
 import com.shwetak3e.zentello.utilities.Constants;
 import com.shwetak3e.zentello.utilities.DetectNetworkConnectivity;
 
+import static com.shwetak3e.zentello.activities.SplashActivity.deliveryBoyRouteMap;
 import static com.shwetak3e.zentello.activities.SplashActivity.parcels;
+import static com.shwetak3e.zentello.activities.SplashActivity.pinRouteMap;
 
 public class BookParcelDeliveryActivity extends AppCompatActivity {
 
@@ -33,6 +39,7 @@ public class BookParcelDeliveryActivity extends AppCompatActivity {
     BroadcastReceiver nonetwork;
 
     Parcel parcel;
+    private static  final String TAG= BookParcelDeliveryActivity.class.getSimpleName();
 
 
     @Override
@@ -57,7 +64,16 @@ public class BookParcelDeliveryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                  parcel.setId(String.valueOf(parcels.size()));
+                 parcel.setParcel_owner("User"+parcel.getId());
+                if(parcel.isPick_up()) {
+                    parcel.setPick_up_person(findpickerName(parcel.getOrigin().getPincode()));
+                }else{
+                    parcel.setPick_up_person("");
+                }
+                Log.i(TAG,parcel.getId()+" "+parcel.getBookingDate()+" "+parcel.getMode()+" "+parcel.getWeight()+" "+parcel.isPick_up());
                  parcels.put(parcel.getId(),parcel);
+                 startActivity(new Intent(BookParcelDeliveryActivity.this, SeeTodayScheduleActivity.class));
+
             }
         });
 
@@ -72,4 +88,10 @@ public class BookParcelDeliveryActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+
+    String findpickerName(String pincode){
+        String routeName=pinRouteMap.get(pincode);
+        Frnachisee.People pickUpPerson=deliveryBoyRouteMap.get(routeName);
+        return  pickUpPerson.getName();
+    }
 }

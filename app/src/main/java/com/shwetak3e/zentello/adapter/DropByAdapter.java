@@ -12,8 +12,12 @@ import android.widget.TextView;
 import com.shwetak3e.zentello.R;
 import com.shwetak3e.zentello.models.Parcel;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static com.shwetak3e.zentello.activities.SplashActivity.parcels;
 
 /**
  * Created by Pervacio on 5/10/2017.
@@ -21,7 +25,7 @@ import java.util.Map;
 
 public class DropByAdapter extends RecyclerView.Adapter<DropByAdapter.Holder> {
 
-    private Map<String,Parcel> parcels=new HashMap<>();
+    private List<Parcel> dropbyparcels=new ArrayList<>();
 
     private Context context;
     private OnMyItemClickListener onMyItemClickListener;
@@ -29,11 +33,20 @@ public class DropByAdapter extends RecyclerView.Adapter<DropByAdapter.Holder> {
     private static String TAG=DropByAdapter.class.getSimpleName();
 
 
-    public DropByAdapter(Context context, Map<String ,Parcel> parcels, OnMyItemClickListener onMyItemClickListener) {
-        Log.i(TAG,"Adapter Constructor");
+    public DropByAdapter(Context context, OnMyItemClickListener onMyItemClickListener) {
+        Log.i(TAG,"Adapter Constructor"+parcels.size());
         this.context=context;
-        this.parcels=parcels;
         this.onMyItemClickListener=onMyItemClickListener;
+        for(Map.Entry<String,Parcel> entry: parcels.entrySet()){
+            Log.i(TAG,"Parcel Added"+dropbyparcels.size());
+            Parcel parcel=entry.getValue();
+            Log.i(TAG,"Parcel Added1 "+dropbyparcels.size());
+            if(!parcel.isPick_up()){
+                Log.i(TAG,"Parcel Added2 "+dropbyparcels.size());
+                dropbyparcels.add(parcel);
+                Log.i(TAG,"Parcel Added3 "+dropbyparcels.size());
+            }
+        }
     }
 
 
@@ -54,11 +67,13 @@ public class DropByAdapter extends RecyclerView.Adapter<DropByAdapter.Holder> {
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         Log.i(TAG,"adapter onBindViewHolder");
+        holder.order_id.setText(dropbyparcels.get(position).getId());
+        holder.parcel_owner_name.setText(dropbyparcels.get(position).getParcel_owner());
     }
 
     @Override
     public int getItemCount() {
-        return parcels.size();
+        return dropbyparcels.size();
     }
 
     public class Holder extends RecyclerView.ViewHolder{

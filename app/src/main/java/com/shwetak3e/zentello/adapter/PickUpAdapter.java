@@ -12,7 +12,9 @@ import android.widget.TextView;
 import com.shwetak3e.zentello.R;
 import com.shwetak3e.zentello.models.Parcel;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.shwetak3e.zentello.activities.SplashActivity.parcels;
@@ -23,6 +25,8 @@ import static com.shwetak3e.zentello.activities.SplashActivity.parcels;
 
 public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
 
+    private List<Parcel> pickupparcels=new ArrayList<>();
+
 
     private Context context;
     private OnMyItemClickListener onMyItemClickListener;
@@ -31,9 +35,20 @@ public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
 
 
     public PickUpAdapter(Context context, OnMyItemClickListener onMyItemClickListener) {
-        Log.i(TAG,"Adapter Constructor");
+        Log.i(TAG,"Adapter Constructor"+parcels.size());
         this.context=context;
         this.onMyItemClickListener=onMyItemClickListener;
+        for(Map.Entry entry: parcels.entrySet()){
+            Log.i(TAG,"Parcel Added "+pickupparcels.size());
+            Parcel parcel=(Parcel)entry.getValue();
+
+            if(parcel.isPick_up()){
+                Log.i(TAG,"Parcel Added1 "+pickupparcels.size());
+                pickupparcels.add(parcel);
+                Log.i(TAG,"Parcel Added "+pickupparcels.size());
+            }
+        }
+
     }
 
 
@@ -54,17 +69,15 @@ public class PickUpAdapter extends RecyclerView.Adapter<PickUpAdapter.Holder> {
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         Log.i(TAG,"adapter onBindViewHolder");
-        Parcel parcel=parcels.get(String.valueOf(position));
-        if(parcel.isPick_up()) {
-            holder.order_id.setText(parcel.getId());
-            holder.parcel_owner_name.setText(parcel.getParcel_owner());
-            holder.pickup_person_name.setText(parcel.getPick_up_person());
-        }
+            holder.order_id.setText(pickupparcels.get(position).getId());
+            holder.parcel_owner_name.setText(pickupparcels.get(position).getParcel_owner());
+            holder.pickup_person_name.setText(pickupparcels.get(position).getPick_up_person());
+
     }
 
     @Override
     public int getItemCount() {
-        return parcels.size();
+        return pickupparcels.size();
     }
 
     public class Holder extends RecyclerView.ViewHolder{

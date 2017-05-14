@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,8 @@ public class PickUpFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     PickUpAdapter pickUpAdapter;
 
+    private static final String TAG=DropByFragment.class.getSimpleName();
+
     public PickUpFragment() {
         // Required empty public constructor
     }
@@ -31,6 +34,7 @@ public class PickUpFragment extends Fragment {
 
     public static PickUpFragment newInstance(int page) {
         PickUpFragment fragment = new PickUpFragment();
+        Log.i(TAG,"newInstance");
         Bundle args = new Bundle();
         args.putInt(ARG_MSG, page);
         fragment.setArguments(args);
@@ -41,6 +45,7 @@ public class PickUpFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG,"onCreate");
         if (getArguments() != null) {
             page = getArguments().getInt(ARG_MSG);
         }
@@ -50,12 +55,19 @@ public class PickUpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Log.i(TAG,"onCreateView");
         View view= inflater.inflate(R.layout.fragment_pickup, container, false);
 
         pickUpDetails=(RecyclerView)view.findViewById(R.id.pick_up_list);
         layoutManager= new GridLayoutManager(getActivity(),1);
         pickUpDetails.setLayoutManager(layoutManager);
-        pickUpAdapter=new PickUpAdapter(getActivity(),)
+        pickUpAdapter=new PickUpAdapter(getActivity(), new PickUpAdapter.OnMyItemClickListener() {
+            @Override
+            public void onClick(String parcel_id) {
+
+            }
+        });
+        pickUpDetails.setAdapter(pickUpAdapter);
         return view;
     }
 

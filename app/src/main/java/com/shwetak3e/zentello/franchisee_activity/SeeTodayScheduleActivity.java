@@ -10,6 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -23,6 +24,8 @@ import com.shwetak3e.zentello.R;
 import com.shwetak3e.zentello.adapter.TodayScheduleAdapter;
 import com.shwetak3e.zentello.utilities.Constants;
 import com.shwetak3e.zentello.utilities.DetectNetworkConnectivity;
+
+import static com.shwetak3e.zentello.activities.SplashActivity.parcels;
 
 public class SeeTodayScheduleActivity extends AppCompatActivity {
 
@@ -43,6 +46,8 @@ public class SeeTodayScheduleActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_see_today_schedule);
+
+        Log.i("ABCD","Adapter Constructor"+parcels.size());
 
         see_today_schedule=(LinearLayout)findViewById(R.id.new_bzyness_layout);
         nonetwork=new DetectNetworkConnectivity() {

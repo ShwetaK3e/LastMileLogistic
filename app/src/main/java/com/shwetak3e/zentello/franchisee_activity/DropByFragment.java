@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.shwetak3e.zentello.R;
+import com.shwetak3e.zentello.adapter.DropByAdapter;
+import com.shwetak3e.zentello.adapter.PickUpAdapter;
 
 /**
  * Created by Pervacio on 5/11/2017.
@@ -24,14 +27,17 @@ public class DropByFragment  extends Fragment {
 
     RecyclerView dropbyList;
     RecyclerView.LayoutManager layoutManager;
+    DropByAdapter dropByAdapter;
 
+    private static final String TAG=DropByFragment.class.getSimpleName();
     public DropByFragment() {
         // Required empty public constructor
     }
 
 
-    public static PickUpFragment newInstance(int page) {
-        PickUpFragment fragment = new PickUpFragment();
+    public static DropByFragment newInstance(int page) {
+        DropByFragment fragment = new DropByFragment();
+        Log.i(TAG,"newInstance");
         Bundle args = new Bundle();
         args.putInt(ARG_MSG, page);
         fragment.setArguments(args);
@@ -42,6 +48,7 @@ public class DropByFragment  extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG,"onCreate");
         if (getArguments() != null) {
             page = getArguments().getInt(ARG_MSG);
         }
@@ -52,10 +59,18 @@ public class DropByFragment  extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dropby, container, false);
-
+        Log.i(TAG,"onCreateView");
         dropbyList = (RecyclerView) view.findViewById(R.id.drop_by_list);
         layoutManager = new GridLayoutManager(getActivity(), 1);
         dropbyList.setLayoutManager(layoutManager);
+        dropbyList.setLayoutManager(layoutManager);
+        dropByAdapter=new DropByAdapter(getActivity(), new DropByAdapter.OnMyItemClickListener() {
+            @Override
+            public void onClick(String parcel_id) {
+
+            }
+        });
+        dropbyList.setAdapter(dropByAdapter);
         return view;
     }
 }
