@@ -90,7 +90,6 @@ public class ParcelDestFragment extends Fragment implements OnMapReadyCallback {
         supportMapFragment.getMapAsync(this);
         latLng = new LatLng(12.79037479, 77.50854492);
         edit_address = (LinearLayout) view.findViewById(R.id.loc_edit);
-        edit_address.setVisibility(View.INVISIBLE);
         edit_address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

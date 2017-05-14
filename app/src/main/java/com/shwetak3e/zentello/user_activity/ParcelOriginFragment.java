@@ -30,6 +30,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import static com.shwetak3e.zentello.activities.SplashActivity.pinFrnachiseeMap;
+
+
 /**
  * Created by Pervacio on 5/11/2017.
  */
@@ -42,6 +45,14 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
     // TODO: Rename and change types of parameters
     private int page;
 
+
+    RelativeLayout gMapLayout;
+    SupportMapFragment supportMapFragment;
+    GoogleMap googleMap;
+    LatLng latLng;
+    LinearLayout edit_address;
+
+    LinearLayout select_origin;
     EditText enter_pincode;
     Button search_franchisee_by_pincode;
 
@@ -52,13 +63,9 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
     ScrollView origin_details_layout;
 
     TextView drop_by_details;
-    FrameLayout pick_up_details;
+    LinearLayout pick_up_details;
 
-    RelativeLayout gMapLayout;
-    SupportMapFragment supportMapFragment;
-    GoogleMap googleMap;
-    LatLng latLng;
-    LinearLayout edit_address;
+
 
     LinearLayout addressFormLayout;
     EditText placeName,zip,locality,street,city,state,country;
@@ -94,12 +101,31 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_parcel_origin, container, false);
+
+        gMapLayout=(RelativeLayout)view.findViewById(R.id.map_layout);
+        gMapLayout.setVisibility(View.INVISIBLE);
+        supportMapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.loc_map);
+        supportMapFragment.getMapAsync(this);
+        latLng = new LatLng(12.79037479, 77.50854492);
+        edit_address = (LinearLayout) view.findViewById(R.id.loc_edit);
+        edit_address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                select_origin.setVisibility(View.VISIBLE);
+                gMapLayout.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
+        select_origin=(LinearLayout)view.findViewById(R.id.select_origin);
+        select_origin.setVisibility(View.VISIBLE);
         enter_pincode=(EditText)view.findViewById(R.id.pincode_edit);
         search_franchisee_by_pincode=(Button)view.findViewById(R.id.search_franchisee);
         search_franchisee_by_pincode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 available_franchisee_layout.setVisibility(View.VISIBLE);
+                franchisee_name.setText(findFranchisee(enter_pincode.getText().toString()));
             }
         });
 
@@ -127,22 +153,9 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
         origin_details_layout.setVisibility(View.INVISIBLE);
         drop_by_details=(TextView)view.findViewById(R.id.drop_by_date);
         drop_by_details.setVisibility(View.INVISIBLE);
-        pick_up_details=(FrameLayout)view.findViewById(R.id.pick_up_details);
+        pick_up_details= (LinearLayout) view.findViewById(R.id.pick_up_details);
         pick_up_details.setVisibility(View.INVISIBLE);
-        gMapLayout=(RelativeLayout)view.findViewById(R.id.map_layout);
-        gMapLayout.setVisibility(View.INVISIBLE);
-        supportMapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.loc_map);
-        supportMapFragment.getMapAsync(this);
-        latLng = new LatLng(12.79037479, 77.50854492);
-        edit_address = (LinearLayout) view.findViewById(R.id.loc_edit);
-        edit_address.setVisibility(View.INVISIBLE);
-        edit_address.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addressFormLayout.setVisibility(View.VISIBLE);
-                gMapLayout.setVisibility(View.INVISIBLE);
-            }
-        });
+
 
         addressFormLayout=(LinearLayout)view. findViewById(R.id.loc_form_layout);
         placeName=(EditText)view.findViewById(R.id.store_name);
@@ -217,12 +230,12 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
 
     void showMapFrag() {
         gMapLayout.setVisibility(View.VISIBLE);
-        addressFormLayout.setVisibility(View.INVISIBLE);
+        select_origin.setVisibility(View.INVISIBLE);
     }
 
     void showAddFormFrag() {
         gMapLayout.setVisibility(View.INVISIBLE);
-        addressFormLayout.setVisibility(View.VISIBLE);
+        select_origin.setVisibility(View.VISIBLE);
     }
 
     void showPickUpDetails() {
@@ -235,5 +248,9 @@ public class ParcelOriginFragment extends Fragment implements OnMapReadyCallback
         pick_up_details.setVisibility(View.INVISIBLE);
         drop_by_details.setText("Deliver the parcel at above franchisee by 7:00 PM on 18.05.2017");
 
+    }
+
+    String findFranchisee(String pin){
+        return pinFrnachiseeMap.get(pin);
     }
 }

@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="2dp"
+        android:id="@+id/map_layout"
+        android:background="@drawable/bg_rounded_square_holder">
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/loc_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:padding="2dp"
+            android:background="@color/light_grey"
+            android:id="@+id/loc_edit">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit "
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/textView" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:paddingLeft="2dp"
+                android:src="@drawable/ic_edit"   />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="If this is not the exact location. Scroll around and touch the exact location for 2s. "
+            android:gravity="center"
+            android:id="@+id/change_loc_guideline"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/white"
+            android:background="@color/black"
+            android:padding="10dp"
+            android:layout_margin="10dp"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/select_origin">
+
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/pin_layout"
@@ -98,65 +158,12 @@
             android:padding="10dp"
             android:layout_margin="10dp" />
 
-        <FrameLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/pick_up_details">
 
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
-                android:id="@+id/map_layout"
-                android:background="@drawable/bg_rounded_square_holder">
-
-                <fragment
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/loc_map"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_alignParentRight="true"
-                    android:padding="2dp"
-                    android:background="@color/light_grey"
-                    android:id="@+id/loc_edit">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Edit "
-                        android:textColor="@color/colorPrimary"
-                        android:id="@+id/textView" />
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:paddingLeft="2dp"
-                        android:src="@drawable/ic_edit"   />
-                </LinearLayout>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="If this is not the exact location. Scroll around and touch the exact location for 2s. "
-                    android:gravity="center"
-                    android:id="@+id/change_loc_guideline"
-                    android:layout_alignParentBottom="true"
-                    android:textColor="@color/white"
-                    android:background="@color/black"
-                    android:padding="10dp"
-                    android:layout_margin="10dp"/>
-
-            </RelativeLayout>
-
-
+                android:layout_height="wrap_content"
+                android:id="@+id/pick_up_details"
+                android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -397,21 +404,12 @@
                         android:id="@+id/save_place"
                         android:layout_gravity="center"/>
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Edit"
-                        android:textColor="@color/colorPrimary"
-                        android:background="@android:color/transparent"
-                        android:id="@+id/edit_place"
-                        android:layout_gravity="center"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-        </FrameLayout>
-
+            </LinearLayout>
 
 
 
@@ -420,12 +418,7 @@
     </ScrollView>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SAVE"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="5dp"
-        android:id="@+id/save_origin"/>
 
 </LinearLayout>
+
+</FrameLayout>

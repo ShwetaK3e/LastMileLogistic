@@ -16,6 +16,15 @@ public class Parcel {
     String mode;
     String parcel_owner;
     String pick_up_person;
+    boolean pick_up;
+
+    public boolean isPick_up() {
+        return pick_up;
+    }
+
+    public void setPick_up(boolean pick_up) {
+        this.pick_up = pick_up;
+    }
 
     public String getBookingDate() {
         return bookingDate;
