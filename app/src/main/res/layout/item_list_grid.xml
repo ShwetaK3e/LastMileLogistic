@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/grid_view"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardCornerRadius="8dp"
+    android:background="@drawable/bg_rounded_square_holder"
+    android:padding="10dp"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="10dp"
+                android:text="COMMODITY NAME :"
+                android:textColor="@color/maroon"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/commodity_name_tag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:padding="10dp"
+                android:text="CHAIRS"
+                android:paddingLeft="20dp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="10dp"
+                android:text="ITEM COUNT :"
+                android:textColor="@color/maroon"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/shipped_item_count_tag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:padding="10dp"
+                android:text="20"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="wrap_content"
+                android:id="@+id/no_of_items_loaded"
+                android:text="8"
+                android:background="@drawable/number_text_bg"
+                android:gravity="center"
+                android:padding="2dp"
+                />
+
+        </LinearLayout>
+
+
+        <RadioGroup
+                android:id="@+id/deficiency_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/leakage_check"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:button="@drawable/checkbox"
+                    android:text="Loaded"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/damaged_check"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:button="@drawable/checkbox"
+                    android:text="Damaged"
+                    android:textColor="@color/white" />
+
+
+                <RadioButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.33"
+                    android:button="@drawable/checkbox"
+                    android:textColor="@color/white"
+                    android:id="@+id/missing_check"
+                    android:text="Missing" />
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

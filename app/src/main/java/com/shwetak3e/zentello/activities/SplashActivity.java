@@ -33,12 +33,12 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        prepareJubileeFranchisee();
+        /*prepareJubileeFranchisee();
         prepareBanjaraFranchisee();
         prepareGachiBowliFranchisee();
         preparePinMap();
         preparePinRouteMap();
-        prepareDeliveryManRouteMap();
+        prepareDeliveryManRouteMap();*/
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -46,7 +46,7 @@ public class SplashActivity extends AppCompatActivity {
                 //This method will be executed once the timer is over
                 //Start your app main activity
                 Intent i;
-                i= new Intent(SplashActivity.this, RegisterActivity.class);
+                i= new Intent(SplashActivity.this, UploadLoadingSheet.class);
                 SplashActivity.this.startActivity(i);
 
                 // Close this activity

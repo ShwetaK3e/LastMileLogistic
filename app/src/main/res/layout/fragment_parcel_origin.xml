@@ -59,12 +59,11 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/select_origin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/select_origin"
+        android:orientation="vertical"
         android:padding="5dp">
-
 
 
         <android.support.design.widget.TextInputLayout
@@ -90,345 +89,360 @@
         </android.support.design.widget.TextInputLayout>
 
 
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/search_franchisee"
-        android:background="@drawable/buttons_bg"/>
-
-
-    <LinearLayout
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="1"
-        android:id="@+id/available_franchisee_layout">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/light_grey"
-            android:layout_margin="5dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/search_franchisee"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NAME OF THE FRANCHISEE"
-            android:id="@+id/franchisee_name"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/buttons_bg"
+            android:text="Search" />
+
+
         <LinearLayout
+            android:id="@+id/available_franchisee_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1"
-            android:gravity="center">
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="PICK MY PARCEL"
-                android:layout_weight="0.4"
-                android:layout_margin="2dp"
-                android:id="@+id/pick_my_parcel"/>
+            android:orientation="vertical"
+            android:weightSum="1">
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="DROP MY PARCEL"
-                android:layout_weight="0.4"
-                android:layout_margin="2dp"
-                android:id="@+id/drop_my_parcel"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="5dp"
+                android:background="@color/light_grey" />
 
+            <TextView
+                android:id="@+id/franchisee_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="NAME OF THE FRANCHISEE"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/pick_my_parcel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="0.4"
+                    android:text="PICK MY PARCEL" />
+
+                <Button
+                    android:id="@+id/drop_my_parcel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="0.4"
+                    android:text="DROP MY PARCEL" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="5dp"
+                android:background="@color/light_grey" />
         </LinearLayout>
 
-        <View
+
+        <ScrollView
+            android:id="@+id/origin_details_layout"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/light_grey"
-            android:layout_margin="5dp"/>
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/drop_by_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/black"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="PLEASE DROP YOUR PARCEL BY "
+                    android:textColor="@color/white" />
+
+
+                <LinearLayout
+                    android:id="@+id/pick_up_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/loc_form_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="2dp"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/ic_place" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/store_name_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="20dp">
+
+                                <EditText
+                                    android:id="@+id/store_name"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Place Name"
+                                    android:inputType="text"
+                                    android:text="401, Elite Service Apartments" />
+                            </android.support.design.widget.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/ic_pincode" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/zip_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="20dp">
+
+                                <EditText
+                                    android:id="@+id/zip"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="PinCode"
+                                    android:inputType="text"
+                                    android:text="500081" />
+                            </android.support.design.widget.TextInputLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/ic_street" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/street_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="20dp">
+
+                                <EditText
+                                    android:id="@+id/street"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Street No"
+                                    android:inputType="text"
+                                    android:text="5" />
+                            </android.support.design.widget.TextInputLayout>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/ic_locality" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/locality_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="20dp">
+
+                                <EditText
+                                    android:id="@+id/locality"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Locality"
+                                    android:inputType="text"
+                                    android:text="Madhapur" />
+                            </android.support.design.widget.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/ic_city" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/city_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="20dp">
+
+                                <EditText
+                                    android:id="@+id/city"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="City"
+                                    android:inputType="text"
+                                    android:text="Hyderabad" />
+                            </android.support.design.widget.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/ic_state" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/state_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="20dp">
+
+                                <EditText
+                                    android:id="@+id/state"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="State"
+                                    android:inputType="text"
+                                    android:text="Telengana" />
+                            </android.support.design.widget.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/ic_country" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/country_layout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingBottom="5dp"
+                                android:paddingLeft="20dp">
+
+                                <EditText
+                                    android:id="@+id/country"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Country"
+                                    android:inputType="text"
+                                    android:text="India" />
+                            </android.support.design.widget.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:id="@+id/save_place"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                android:text="See in Maps"
+                                android:textColor="@color/colorPrimary" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </FrameLayout>
+
+        </ScrollView>
+
+
     </LinearLayout>
-
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/origin_details_layout">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="PLEASE DROP YOUR PARCEL BY "
-            android:gravity="center"
-            android:id="@+id/drop_by_date"
-            android:textColor="@color/white"
-            android:background="@color/black"
-            android:padding="10dp"
-            android:layout_margin="10dp" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/pick_up_details"
-                android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="2dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:weightSum="1"
-                android:id="@+id/loc_form_layout">
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    android:layout_marginTop="2dp"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_place"
-                        android:layout_margin="5dp"/>
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/store_name_layout"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="20dp"
-                        android:layout_weight="1">
-
-                        <EditText
-                            android:id="@+id/store_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Place Name"
-                            android:text="401, Elite Service Apartments"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_pincode"
-                        android:layout_margin="5dp"/>
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/zip_layout"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="20dp"
-                        android:layout_weight="1">
-
-                        <EditText
-                            android:id="@+id/zip"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="PinCode"
-                            android:text="500081"/>
-                    </android.support.design.widget.TextInputLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_street"
-                        android:layout_margin="5dp"/>
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/street_layout"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="20dp"
-                        android:layout_weight="1">
-
-                        <EditText
-                            android:id="@+id/street"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Street No"
-                            android:text="5"/>
-                    </android.support.design.widget.TextInputLayout>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_locality"
-                        android:layout_margin="5dp"/>
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/locality_layout"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="20dp"
-                        android:layout_weight="1">
-
-                        <EditText
-                            android:id="@+id/locality"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Locality"
-                            android:text="Madhapur"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_city"
-                        android:layout_margin="5dp"/>
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/city_layout"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="20dp"
-                        android:layout_weight="1">
-
-                        <EditText
-                            android:id="@+id/city"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="City"
-                            android:text="Hyderabad"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_state"
-                        android:layout_margin="5dp"/>
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/state_layout"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="20dp"
-                        android:layout_weight="1">
-
-                        <EditText
-                            android:id="@+id/state"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="State"
-                            android:text="Telengana"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    android:gravity="center">
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/ic_country"
-                        android:layout_margin="5dp"/>
-                    <android.support.design.widget.TextInputLayout
-                        android:id="@+id/country_layout"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:paddingLeft="20dp"
-                        android:layout_weight="1">
-
-                        <EditText
-                            android:id="@+id/country"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            android:hint="Country"
-                            android:text="India"/>
-                    </android.support.design.widget.TextInputLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="See in Maps"
-                        android:textColor="@color/colorPrimary"
-                        android:background="@android:color/transparent"
-                        android:id="@+id/save_place"
-                        android:layout_gravity="center"/>
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            </LinearLayout>
-
-
-
-    </FrameLayout>
-
-    </ScrollView>
-
-
-
-</LinearLayout>
 
 </FrameLayout>

@@ -44,6 +44,7 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".franchisee_activity.SignatureActivity" />
+        <activity android:name=".activities.UploadLoadingSheet"></activity>
     </application>
 
 </manifest>
